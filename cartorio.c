@@ -108,43 +108,65 @@ int deletar(){
 int main(){
 	int opcao=0; //definindo variáveis
 	int laco=1;
+	char senhadigitada[]="a";
+	int comparacao;
 	
-	for(laco=1;laco=1;){
-		
-		system("cls"); //responsável por limpar a tela 
+	printf("###Cartório da EBAC###\n\n");
+	printf("Login de administrador!\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
 	
-		setlocale(LC_ALL, "Portuguese"); //definindo linguagem
+	comparacao = strcmp(senhadigitada, "admin");
 	
-		printf("###Cartório da EBAC###\n\n"); //início do menu
-		printf("Escolha a opção desejada do menu:\n\n");
-		printf("\t1 - Registrar Nomes\n");
-		printf("\t2 - Consultar Nomes\n");
-		printf("\t3 - Deletar Nomes\n\n"); 
-		printf("Opção: "); //fim do menu
-	
-		scanf("%d", &opcao); //armazenando a escolha do menu
+	if(comparacao == 0)
+	{
 	
 		system("cls");
+		for(laco=1;laco=1;){
 		
-		switch(opcao){
-			case 1:
-			registro(); //chamada de funções 
-			break;
-			
-			case 2:
-			consulta();
-			break;
-			
-			case 3:
-			deletar();
-			break;
-			
-			default:
-			printf("Essa opção não está disponível!\n");
-			system("pause");
-			break;
-		} //fim da seleção
+			system("cls"); //responsável por limpar a tela 
 	
+			setlocale(LC_ALL, "Portuguese"); //definindo linguagem
+	
+			printf("###Cartório da EBAC###\n\n"); //início do menu
+			printf("Escolha a opção desejada do menu:\n\n");
+			printf("\t1 - Registrar Nomes\n");
+			printf("\t2 - Consultar Nomes\n");
+			printf("\t3 - Deletar Nomes\n\n"); 
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opção: "); //fim do menu
+	
+			scanf("%d", &opcao); //armazenando a escolha do menu
+	
+			system("cls");
 		
+			switch(opcao){
+				case 1:
+				registro(); //chamada de funções 
+				break;
+			
+				case 2:
+				consulta();
+				break;
+			
+				case 3:
+				deletar();
+				break;
+			
+				case 4:
+				printf("Obrigado por utilizar o sistema\n");
+				return 0;
+				break;	
+				
+			
+				default:
+				printf("Essa opção não está disponível!\n");
+				system("pause");
+				break;
+			} //fim da seleção
+	
+		}
 	}
+	
+	else
+		printf("Senha incorreta!");
 }
